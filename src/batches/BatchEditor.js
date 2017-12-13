@@ -1,6 +1,5 @@
 
 import React, { PureComponent } from 'react'
-import Editor from 'react-medium-editor'
 import toMarkdown from 'to-markdown'
 import { connect } from 'react-redux'
 import 'medium-editor/dist/css/medium-editor.css'
@@ -31,10 +30,23 @@ class BatchEditor extends PureComponent {
     })
   }
 
-  updateIntro(text, medium) {
+  updateStartDate(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault()
+      this.refs.summary.medium.elements[0].focus()
+    }
     this.setState({
-      startDate: text,
-      endDate: text
+      startDate: this.refs.startDate.value
+    })
+  }
+
+  updateEndDate(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault()
+      this.refs.summary.medium.elements[0].focus()
+    }
+    this.setState({
+      endDate: this.refs.endDate.value
     })
   }
 
@@ -55,31 +67,37 @@ class BatchEditor extends PureComponent {
   render() {
     return (
       <div className="editor">
+      <div>
+      <label>New class: </label>
         <input
           type="text"
           ref="title"
           className="title"
-          placeholder="Title"
+          placeholder="Class"
           defaultValue={this.state.title}
           onChange={this.updateTitle.bind(this)}
           onKeyUp={this.updateTitle.bind(this)} />
-
-        <Editor
-          ref="startDate"
-          options={{
-            placeholder: {text: 'Please write the date when the school begins'}
-          }}
-          onChange={this.updateIntro.bind(this)}
-          text={this.state.startDate} />
-
-          <Editor
-            ref="endDate"
-            options={{
-              placeholder: {text: 'Please write the date when the school ends'}
-            }}
-            onChange={this.updateIntro.bind(this)}
-            text={this.state.endDate} />
-
+      </div>
+        <div>
+        <label>Start date: </label>
+          <input
+            type="date"
+            ref="startDate"
+            className="startDate"
+            defaultValue={this.state.startDate}
+            onChange={this.updateStartDate.bind(this)}
+            onKeyUp={this.updateStartDate.bind(this)} />
+          </div>
+        <div>
+        <label>End date: </label>
+            <input
+              type="date"
+              ref="endDate"
+              className="endDate"
+              defaultValue={this.state.endDate}
+              onChange={this.updateEndDate.bind(this)}
+              onKeyUp={this.updateEndDate.bind(this)} />
+        </div>
         <div className="actions">
           <button className="primary" onClick={this.saveBatch.bind(this)}>Save</button>
         </div>

@@ -11,7 +11,7 @@ export default () => {
 
     api.get('batches')
       .then(res => dispatch({ type: FETCHED_BATCHES, payload: res.body }))
-      //.catch(err => dispatch(loadError(err))) ???
+      .catch(err => console.log(err))
 
     // dispatch(loading(false)) // ???
   }

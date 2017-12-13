@@ -1,25 +1,22 @@
 // src/reducers/batches.js
-import batches from  '../fixtures/batches'
+
 import {
   FETCHED_BATCHES,
   CREATE_BATCH
 } from '../actions/batches'
 
-const newId = (state) => {
-  const ids = state
-    .map((batch) => batch._id)
-    .sort()
-  return ['abcd', parseInt(ids[ids.length - 1].split('abcd')[1], 10) + 1].join('')
-}
+import { USER_SIGNED_OUT } from '../actions/user/sign-out'
 
-export default (state = batches, {type, payload} = {}) => {
+export default (state = [], {type, payload} = {}) => {
   switch(type) {
     case FETCHED_BATCHES :
       return [ ...payload ]
 
     case CREATE_BATCH :
-      return [{ ...payload, _id: newId(state) }].concat(state)
+      return [{ ...payload }].concat(state)
 
+    case USER_SIGNED_OUT:
+      return []
     default :
       return state
   }

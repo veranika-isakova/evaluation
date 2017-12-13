@@ -1,8 +1,20 @@
+import ApiClient from '../../api/client'
 export const CREATE_BATCH = 'CREATE_BATCH'
 
+const api = new ApiClient()
+
 export default (newBatch) => {
-  return {
-    type: CREATE_BATCH,
-    payload: newBatch
+  return dispatch => {
+  api
+			.post("batches", newBatch)
+      .then((res) => {
+        dispatch({
+					type: CREATE_BATCH,
+					payload: res.body
+				});
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 }

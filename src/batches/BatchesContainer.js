@@ -8,7 +8,9 @@ import './BatchesContainer.css'
 
 class BatchesContainer extends PureComponent {
   componentWillMount() {
-    this.props.dispatch(fetchBatches())
+    //if (this.props.currentUser) {
+      this.props.dispatch(fetchBatches())
+    //}
   }
 
   renderBatch(batch, index) {
@@ -18,9 +20,10 @@ class BatchesContainer extends PureComponent {
   }
 
   render() {
+    //const { batches, currentUser } = this.props
     const { batches } = this.props
 
-    if (!batches) { return null }
+    //if (!currentUser) { return null }
 
     return(
       <div className="BatchesContainer">
@@ -37,6 +40,6 @@ class BatchesContainer extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ batches }) => ({ batches })
+const mapStateToProps = ({ batches, currentUser }) => ({ batches, currentUser })
 
 export default connect(mapStateToProps)(BatchesContainer)
