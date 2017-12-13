@@ -2,8 +2,9 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import Title from '../components/Title'
+import Avatar from 'material-ui/Avatar';
 
+const style = {border: 0, objectFit: 'cover', margin: 5};
 
 class StudentItem extends PureComponent {
   static propTypes = {
@@ -15,17 +16,14 @@ class StudentItem extends PureComponent {
     const { _id, name, photo } = this.props
 
     return(
-      <article className="StudenItem">
-        <header>
-          <Link to={`/students/${_id}`}>
-            <Title content={name} className="level-2" />
-          </Link>
-        </header>
+      <div>
+      <Avatar
+      src={photo}
+      style={style}
+      size={50}/>
 
-        <div>
-          <p><img src={ photo } alt='' /></p>
-        </div>
-      </article>
+      <Link to={`/students/${_id}`}>{name}</Link>
+      </div>
     )
   }
 }
