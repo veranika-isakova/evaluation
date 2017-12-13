@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetch as fetchBatches } from '../actions/batches'
 import Title from '../components/Title'
 import BatchItem from './BatchItem'
+//import './BatchesContainer.css'
 
 class BatchesContainer extends PureComponent {
   componentWillMount() {
