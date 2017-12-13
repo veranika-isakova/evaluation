@@ -10,6 +10,9 @@ export default class ApiClient {
     this.options = { ...this.defaultOptions, ...options }
   }
 
+  signOut() {
+  		this.removeToken();
+  	}
   // GET path
   //
   // Example:
@@ -85,4 +88,7 @@ export default class ApiClient {
   storeToken(token) {
     localStorage.setItem(this.options.tokenStorageKey, token)
   }
+  removeToken() {
+		localStorage.removeItem(this.options.tokenStorageKey);
+	}
 }

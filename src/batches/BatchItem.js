@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Title from '../components/Title'
-//import './BatchItem.css'
+import './BatchItem.css'
 
 
 class BatchItem extends PureComponent {
   static propTypes = {
     title: PropTypes.string.isRequired,
-    startDate: PropTypes.instanceOf(Date),
-    endDate: PropTypes.instanceOf(Date)
+    startDate: PropTypes.string.isRequired,
+    endDate: PropTypes.string.isRequired
   }
 
   render() {
@@ -26,8 +26,8 @@ class BatchItem extends PureComponent {
         </header>
 
         <div>
-          <p>{ startDate }</p>
-          <p>{ endDate }</p>
+          <p>Start date: { new Date(startDate).toLocaleDateString("nl-NL") }</p>
+          <p>End date: { new Date(endDate).toLocaleDateString("nl-NL") }</p>
         </div>
 
       </article>

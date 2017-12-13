@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { fetch as fetchBatches } from '../actions/batches'
 import Title from '../components/Title'
 import BatchItem from './BatchItem'
-//import './BatchesContainer.css'
+import BatchEditor from './BatchEditor'
+import './BatchesContainer.css'
 
 class BatchesContainer extends PureComponent {
   componentWillMount() {
@@ -23,7 +24,7 @@ class BatchesContainer extends PureComponent {
 
     return(
       <div className="BatchesContainer">
-
+      <BatchEditor />
         <header>
           <Title content="All classes" />
         </header>
