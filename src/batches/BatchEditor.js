@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import 'medium-editor/dist/css/medium-editor.css'
 import 'medium-editor/dist/css/themes/default.css'
 import createBatch from '../actions/batches/create'
-//import './RecipeEditor.css'
+import './BatchEditor.css'
 
 class BatchEditor extends PureComponent {
   constructor(props) {

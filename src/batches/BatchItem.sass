@@ -1,11 +1,7 @@
 
 @import "../styles/breakpoints.sass"
 
-.BatchItem
-  margin: 10px
-
 article.BatchItem
-  flex: 1
   border-radius: .1em
   overflow: hidden
   box-shadow: 0 1px 6px rgba(0,0,0,.117647),0 1px 4px rgba(0,0,0,.117647)
@@ -14,10 +10,10 @@ article.BatchItem
   margin: 1em .8em
   background-color: #fff
   padding: 1em
+  width: 200px
 
   @include breakpoint($breakpoint-medium)
     margin: .8em
-    min-width: calc(45% - 4.4rem)
     flex-shrink: 1
 
   header
