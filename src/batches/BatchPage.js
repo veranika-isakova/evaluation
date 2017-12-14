@@ -6,7 +6,6 @@ import Title from '../components/Title'
 import StudentItem from '../students/StudentItem'
 import StudentEditor from '../students/StudentEditor'
 
-
 export class BatchPage extends PureComponent {
   static propTypes = {
     title: PropTypes.string,
@@ -16,9 +15,93 @@ export class BatchPage extends PureComponent {
     this.props.fetchBatches()
   }
   selectStudent() {
-    var selectedStudent = this.props.students[Math.floor(Math.random()*this.props.students.length)];
+
+    var greenStudents = this.props.students.filter(function(student) {
+      var greenMarksCount = student.evaluations
+      .filter(function(evaluation) {
+        return evaluation.color === "green"
+      })
+      .length
+      var yellowMarksCount = student.evaluations
+      .filter(function(evaluation) {
+        return evaluation.color === "yellow"
+      })
+      .length
+      var redMarksCount = student.evaluations
+      .filter(function(evaluation) {
+        return evaluation.color === "red"
+      })
+      .length
+
+      if (greenMarksCount >= yellowMarksCount && greenMarksCount >= redMarksCount) {
+        return true
+      } else {
+        return false
+      }
+    })
+    var yellowStudents = this.props.students.filter(function(student) {
+      var greenMarksCount = student.evaluations
+      .filter(function(evaluation) {
+        return evaluation.color === "green"
+      })
+      .length
+      var yellowMarksCount = student.evaluations
+      .filter(function(evaluation) {
+        return evaluation.color === "yellow"
+      })
+      .length
+      var redMarksCount = student.evaluations
+      .filter(function(evaluation) {
+        return evaluation.color === "red"
+      })
+      .length
+
+      if (yellowMarksCount >= greenMarksCount && yellowMarksCount >= redMarksCount) {
+        return true
+      } else {
+        return false
+      }
+    })
+    var redStudents = this.props.students.filter(function(student) {
+      var greenMarksCount = student.evaluations
+      .filter(function(evaluation) {
+        return evaluation.color === "green"
+      })
+      .length
+      var yellowMarksCount = student.evaluations
+      .filter(function(evaluation) {
+        return evaluation.color === "yellow"
+      })
+      .length
+      var redMarksCount = student.evaluations
+      .filter(function(evaluation) {
+        return evaluation.color === "red"
+      })
+      .length
+
+      if (redMarksCount >= yellowMarksCount && redMarksCount >= greenMarksCount) {
+        return true
+      } else {
+        return false
+      }
+    })
+
+    let selectedArray;
+
+    var randomNumber = Math.floor(Math.random() * 101);
+
+    if (randomNumber >= 0 && randomNumber <= 17) {
+      selectedArray = greenStudents
+    } else if(randomNumber >= 18 && randomNumber <= 50) {
+      selectedArray = yellowStudents
+    } else if (randomNumber >= 51 && randomNumber <= 100) {
+      selectedArray = redStudents
+    };
+
+    var selectedStudent = selectedArray[Math.floor(Math.random()*selectedArray.length)];
     alert(selectedStudent.name)
   }
+
   renderStudent(student, index ) {
     return (
       <StudentItem key={index} {...student} />
