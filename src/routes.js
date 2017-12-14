@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import BatchesContainer from './batches/BatchesContainer'
 import BatchPage from './batches/BatchPage'
 import StudentPage from './students/StudentPage'
+//import StudentsContainer from './students/StudentsContainer'
 import SignIn from './users/SignIn'
 
 export default class Routes extends Component {
@@ -12,8 +13,10 @@ export default class Routes extends Component {
         <Route exact path="/" component={BatchesContainer} />
         <Route path="/batches/:batchId" component={BatchPage} />
         <Route path="/students/:studentId" component={StudentPage} />
+
         <Route path="/sign-in" component={SignIn} />
       </div>
     )
   }
 }
+//<Route exact path="/batches" component={StudentsContainer} />

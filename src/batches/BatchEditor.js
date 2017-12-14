@@ -1,4 +1,3 @@
-
 import React, { PureComponent } from 'react'
 import toMarkdown from 'to-markdown'
 import { connect } from 'react-redux'

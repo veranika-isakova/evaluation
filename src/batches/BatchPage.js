@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { fetch as fetchBatches } from '../actions/batches'
 import Title from '../components/Title'
 import StudentItem from '../students/StudentItem'
+import StudentEditor from '../students/StudentEditor'
 
 export class BatchPage extends PureComponent {
   static propTypes = {
@@ -25,6 +26,7 @@ export class BatchPage extends PureComponent {
 
     return(
       <div className="batch page">
+      <StudentEditor />
         <Title content={ title } />
         <main>
           {students.map(this.renderStudent)}
