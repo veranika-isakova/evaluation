@@ -5,6 +5,7 @@ import { fetch as fetchBatches } from '../actions/batches'
 import Title from '../components/Title'
 import StudentItem from '../students/StudentItem'
 import StudentEditor from '../students/StudentEditor'
+import './BatchPage.css'
 
 export class BatchPage extends PureComponent {
   static propTypes = {
@@ -117,7 +118,7 @@ export class BatchPage extends PureComponent {
       <StudentEditor batchId={_id} />
         <Title content={ title } />
         <div className="actions">
-          <button className="primary" onClick={this.selectStudent.bind(this)}>Ask question</button>
+          <button className="primary buttonAsk" onClick={this.selectStudent.bind(this)}>Ask question</button>
         </div>
         <main>
           {students.map(this.renderStudent)}
