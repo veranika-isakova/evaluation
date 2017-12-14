@@ -1,12 +1,11 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import Title from '../components/Title'
 import './BatchItem.css'
 
 
-class BatchItem extends PureComponent {
+export class BatchItem extends PureComponent {
   static propTypes = {
     title: PropTypes.string.isRequired,
     startDate: PropTypes.string.isRequired,
@@ -19,9 +18,9 @@ class BatchItem extends PureComponent {
     return(
       <article className="BatchItem">
         <header>
-          <Link to={`/batches/${_id}`}>
+          <a href={`/batches/${_id}`}>
             <Title content={title} className="level-2" />
-          </Link>
+          </a>
 
         </header>
 

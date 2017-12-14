@@ -6,6 +6,7 @@ import Title from '../components/Title'
 import StudentItem from '../students/StudentItem'
 import StudentEditor from '../students/StudentEditor'
 
+
 export class BatchPage extends PureComponent {
   static propTypes = {
     title: PropTypes.string,
@@ -14,23 +15,31 @@ export class BatchPage extends PureComponent {
   componentWillMount() {
     this.props.fetchBatches()
   }
-  renderStudent(student, index) {
+  selectStudent() {
+    var selectedStudent = this.props.students[Math.floor(Math.random()*this.props.students.length)];
+    alert(selectedStudent.name)
+  }
+  renderStudent(student, index ) {
     return (
       <StudentItem key={index} {...student} />
     )
   }
   render() {
-    const { title, students } = this.props
+    const { title, students, _id } = this.props
 
     if (!title) return null
 
     return(
       <div className="batch page">
-      <StudentEditor />
+      <StudentEditor batchId={_id} />
         <Title content={ title } />
+        <div className="actions">
+          <button className="primary" onClick={this.selectStudent.bind(this)}>Ask question</button>
+        </div>
         <main>
           {students.map(this.renderStudent)}
         </main>
+
       </div>
     )
   }

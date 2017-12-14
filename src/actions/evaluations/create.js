@@ -1,15 +1,15 @@
 import ApiClient from '../../api/client'
-export const CREATE_STUDENT = 'CREATE_STUDENT'
+export const CREATE_EVALUATION = 'CREATE_EVALUATION'
 
 const api = new ApiClient()
 
-export default (newStudent, batchId) => {
+export default (newEvaluation) => {
   return dispatch => {
   api
-			.patch(`batches/${batchId}`, newStudent)
+			.post("evaluations", newEvaluation)
       .then((res) => {
         dispatch({
-					type: CREATE_STUDENT,
+					type: CREATE_EVALUATION,
 					payload: res.body
 				});
       })

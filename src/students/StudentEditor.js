@@ -24,7 +24,7 @@ class StudentEditor extends PureComponent {
       this.refs.summary.medium.elements[0].focus()
     }
     this.setState({
-      title: this.refs.name.value
+      name: this.refs.name.value
     })
   }
   updatePhoto(event) {
@@ -42,7 +42,7 @@ class StudentEditor extends PureComponent {
 
     console.table(student)
 
-    this.props.save(student)
+    this.props.save(student, this.props.batchId)
   }
 
   render() {
