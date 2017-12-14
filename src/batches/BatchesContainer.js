@@ -6,7 +6,7 @@ import BatchItem from './BatchItem'
 import BatchEditor from './BatchEditor'
 import './BatchesContainer.css'
 
-class BatchesContainer extends PureComponent {
+export class BatchesContainer extends PureComponent {
   componentWillMount() {
     //if (this.props.currentUser) {
       this.props.dispatch(fetchBatches())
