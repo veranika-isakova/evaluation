@@ -47,4 +47,4 @@ const mapStateToProps = ({ batches }, { match }) => {
   }
 }
 //match?
-export default connect(mapStateToProps, { fetchBatches})(BatchPage) // RecipePage receives props from connect
+export default connect(mapStateToProps, { fetchBatches})(BatchPage)
