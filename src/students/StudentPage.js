@@ -5,6 +5,7 @@ import { fetch as fetchStudents } from '../actions/students'
 import Title from '../components/Title'
 import EvaluationItem from '../evaluations/EvaluationItem'
 import Avatar from 'material-ui/Avatar';
+import './StudentPage.css'
 
 const style = {border: 0, objectFit: 'cover', margin: 5};
 
@@ -29,13 +30,13 @@ export class StudentPage extends PureComponent {
     if (!photo) return null
 
     return(
-      <div className="student page">
+      <div className="studentpage">
         <Title content={ name } />
         <Avatar
         src={photo}
         style={style}
         size={100}/>
-        <main>
+        <main className="itemContainer">
           {evaluations.map(this.renderEvaluation)}
         </main>
       </div>

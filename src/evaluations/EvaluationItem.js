@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Title from '../components/Title'
+import './EvaluationItem.css'
 
 
 class EvaluationItem extends PureComponent {

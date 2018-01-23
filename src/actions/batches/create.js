@@ -6,7 +6,7 @@ const api = new ApiClient()
 export default (newBatch) => {
   return dispatch => {
   api
-			.post("batches", newBatch)
+			.post("batches", newBatch) // newBatch - request body
       .then((res) => {
         dispatch({
 					type: CREATE_BATCH,
